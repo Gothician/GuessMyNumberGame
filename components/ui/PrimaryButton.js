@@ -2,7 +2,7 @@ import { Text, View, Pressable, StyleSheet } from 'react-native';
 
 import { Colors } from '../../constants';
 
-const PrimaryButton = ({ children, color, onPress }) => {
+const PrimaryButton = ({ children, color, textColor, size, onPress }) => {
   return (
     <View style={styles.buttonOuterContainer}>
       <Pressable
@@ -18,7 +18,9 @@ const PrimaryButton = ({ children, color, onPress }) => {
             : [styles.buttonInnerContainer, { backgroundColor: color }]
         }
       >
-        <Text style={styles.buttonText}>{children}</Text>
+        <Text style={[styles.buttonText, { color: textColor, fontSize: size }]}>
+          {children}
+        </Text>
       </Pressable>
     </View>
   );
