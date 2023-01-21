@@ -12,7 +12,7 @@ import { Colors } from './constants';
 export default function App() {
   const [isGameOver, setIsGameOver] = useState(false);
   const [userNumber, setUserNumber] = useState();
-  const [gameRounds, setGameRounds] = useState([]);
+  const [gameRounds, setGameRounds] = useState(0);
   // Set initial screen
   const [screen, setScreen] = useState();
 
@@ -32,7 +32,7 @@ export default function App() {
     if (isGameOver) {
       setScreen(
         <GameOverScreen
-          roundsNumber={gameRounds.length}
+          roundsNumber={gameRounds}
           userNumber={userNumber}
           onStartNewGame={() => handleStartNewGame()}
         />
@@ -43,7 +43,6 @@ export default function App() {
       setScreen(
         <GameScreen
           userNumber={userNumber}
-          gameRounds={gameRounds}
           setGameRounds={setGameRounds}
           onGameOver={setIsGameOver}
         />

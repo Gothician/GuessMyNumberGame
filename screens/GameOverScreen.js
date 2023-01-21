@@ -14,9 +14,9 @@ const GameOverScreen = ({ roundsNumber, userNumber, onStartNewGame }) => {
       </View>
       <View>
         <Text style={styles.summaryText}>
-          Your phone needed{' '}
-          <Text style={styles.highlight}>{roundsNumber + 1}</Text> rounds to
-          quess the number <Text style={styles.highlight}>{userNumber}</Text>
+          Your phone needed <Text style={styles.highlight}>{roundsNumber}</Text>{' '}
+          rounds to quess the number{' '}
+          <Text style={styles.highlight}>{userNumber}</Text>
         </Text>
         <PrimaryButton
           color={Colors.primary800}

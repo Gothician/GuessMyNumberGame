@@ -18,7 +18,7 @@ const generateRandomBetween = (min, max, exclude = 0) => {
 
 const boundaries = { min: 1, max: 100 };
 
-const GameScreen = ({ userNumber, gameRounds, setGameRounds, onGameOver }) => {
+const GameScreen = ({ userNumber, setGameRounds, onGameOver }) => {
   const [rounds, setRounds] = useState(1);
   const [currentGuess, setCurrentGuess] = useState(
     generateRandomBetween(boundaries.min, boundaries.max, userNumber)
@@ -34,7 +34,7 @@ const GameScreen = ({ userNumber, gameRounds, setGameRounds, onGameOver }) => {
     setcurrentGameRounds((prev) => [currentGuess, ...prev]);
 
     if (currentGuess == userNumber) {
-      setGameRounds([...currentGameRounds]);
+      setGameRounds(currentGameRounds.length + 1);
       onGameOver(true);
     }
   }, [currentGuess]);
@@ -95,7 +95,7 @@ const GameScreen = ({ userNumber, gameRounds, setGameRounds, onGameOver }) => {
           </View>
         </View>
       </Card>
-      <View>
+      <View style={styles.listContainer}>
         <FlatList
           data={currentGameRounds}
           keyExtractor={(item) => item}
@@ -127,5 +127,9 @@ const styles = StyleSheet.create({
   },
   buttonItem: {
     flex: 1,
+  },
+  listContainer: {
+    flex: 1,
+    padding: 16,
   },
 });
