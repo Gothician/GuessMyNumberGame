@@ -68,24 +68,26 @@ export default function App() {
   if (!fontsLoaded) return null;
 
   return (
-    <LinearGradient
-      colors={[Colors.shade100, Colors.shade200]}
-      style={styles.rootScreen}
-      onLayout={onLayoutRootView}
-    >
-      <ImageBackground
-        source={require('./assets/images/background.png')}
-        resizeMode="cover"
+    <>
+      <StatusBar style="light" hidden={true} />
+      <LinearGradient
+        colors={[Colors.shade100, Colors.shade200]}
         style={styles.rootScreen}
-        imageStyle={styles.backgroundImage}
+        onLayout={onLayoutRootView}
       >
-        <StatusBar hidden={true} />
-        <SafeAreaView style={styles.rootScreen}>
-          {/* display  screen */}
-          {screen}
-        </SafeAreaView>
-      </ImageBackground>
-    </LinearGradient>
+        <ImageBackground
+          source={require('./assets/images/background.png')}
+          resizeMode="cover"
+          style={styles.rootScreen}
+          imageStyle={styles.backgroundImage}
+        >
+          <SafeAreaView style={styles.rootScreen}>
+            {/* display  screen */}
+            {screen}
+          </SafeAreaView>
+        </ImageBackground>
+      </LinearGradient>
+    </>
   );
 }
 
